@@ -6,7 +6,7 @@
     <title>Welcome</title>
 </head>
 <body>
-    <h1>Aqui normalmente seria o welcome do laravel onde tem os links de login e register(essa parte é fora da section)</h1>
+    <h1>Aqui normalmente seria o welcome do laravel onde tem os links de login e register(essa parte é fora da section e o master no video do careca)</h1>
 
     <div class="container">
         @yield('content')
