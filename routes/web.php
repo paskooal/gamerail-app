@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GameController;
 
+//Rotas de games
 Route::get('/', [HomeController::class,'index'])->name('home');
 Route::get('/games', [GameController::class,'index'])->name('games.index');
 Route::get('/games/create', [GameController::class,'create'])->name('games.create');

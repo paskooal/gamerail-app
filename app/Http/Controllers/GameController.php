@@ -3,15 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Game;
 
 class GameController extends Controller
 {
+    public readonly Game $games;
+    public function __construct() {
+        $this->games = new Game;
+    }
+    
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $games = $this->games->all();
+        return view('games', ['games' => $games]);
     }
 
     /**
