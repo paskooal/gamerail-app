@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('games', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->decimal('price', 10, 2);
-            $table->text('description')->nullable();    
+            $table->string('title')->unique();
+            $table->decimal('price', 10, 2)->after('title');
+            $table->text('description')->nullable()->after('price');
+            $table->string('image')->default('images/default.png')->after('description');
+            $table->integer('total_sales')->default(0)->after('image');
             $table->foreignId('game_category_id')->constrained()->onDelete('cascade'); //essa parte depois do constrained faz com que, quando uma categoria for deletada, todos os jogos dela tbm serão deletados. se n quiser é so tirar
             $table->timestamps();
         });
