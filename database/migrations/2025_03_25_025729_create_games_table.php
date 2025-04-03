@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->decimal('price', 10, 2);
-            $table->text('description');
+            $table->text('description')->nullable();    
+            $table->foreignId('game_category_id')->constrained()->onDelete('cascade'); //essa parte depois do constrained faz com que, quando uma categoria for deletada, todos os jogos dela tbm serão deletados. se n quiser é so tirar
             $table->timestamps();
         });
     }
