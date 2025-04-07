@@ -14,11 +14,10 @@ return new class extends Migration
         Schema::create('companies', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
-            $table->string('CEO')->after('name');
-            $table->date('foundation_date')->after('CEO');
-            $table->text('description')->nullable()->after('foundation_date');
-            $table->string('image')->default('images/default.png')->after('description');
-            $table->foreignId('prod_category_id')->constrained()->onDelete('cascade');
+            $table->string('ceo');
+            $table->date('foundation_date');  
+            $table->text('description')->nullable();
+            $table->string('image')->default('images/default.png');
             $table->timestamps();
         });
     }

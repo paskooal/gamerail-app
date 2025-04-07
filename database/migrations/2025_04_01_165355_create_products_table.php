@@ -14,12 +14,15 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name')->unique();
-            $table->string('image')->default('images/default.png')->after('name');
+            $table->string('image')->default('images/default.png');
             $table->text('description')->nullable();
-            $table->decimal('price', 10, 2)->after('description');
-            $table->date('release_date')->nullable()->after('price');
-            $table->integer('total_sales')->default(0)->after('release_date');
-            $table->foreignId('prod_category_id')->constrained()->onDelete('cascade');
+            $table->decimal('price', 10, 2);
+            $table->date('release_date')->nullable();
+            $table->integer('total_sales')->default(0);
+            
+            $table->foreignId('manufacturer_id')->constrained('companies')->onDelete('cascade');
+            $table->foreignId('category_id')->constrained('prod_categories')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

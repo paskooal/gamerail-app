@@ -10,10 +10,12 @@ class Companie extends Model
     use HasFactory;
 
 
-    protected $fillable = ['name', 'description', 'CEO', 'foundation_date', 'prod_category_id'];
+    protected $fillable = [
+        'name',
+        'description',
+        'CEO',
+        'foundation_date',
+        'prod_category_id'
+    ];
 
-    public function companies()
-    {
-        return $this->hasMany(Companie::class, 'companie_id');
-    }
 }
