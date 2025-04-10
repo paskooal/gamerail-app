@@ -1,0 +1,1 @@
+<h1>aqui serão criadas as categorias de jogos</h1>
