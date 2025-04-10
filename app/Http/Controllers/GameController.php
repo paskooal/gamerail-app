@@ -18,7 +18,7 @@ class GameController extends Controller
     public function index()
     {
         $games = $this->games->all();
-        return view('games', ['games' => $games]);
+        return view('games/index', ['games' => $games]);
     }
 
     /**
