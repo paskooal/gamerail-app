@@ -1,0 +1,1 @@
+<h1>aqui serão editadas as categorias de jogos</h1>

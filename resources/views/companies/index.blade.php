@@ -1,1 +1,1 @@
-<h1>aqui serão as empresas</h1>
+<h1>aqui serão listadas as empresas</h1>

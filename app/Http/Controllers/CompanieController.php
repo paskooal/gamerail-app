@@ -3,15 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Companie;
 
 class CompanieController extends Controller
 {
+
+    public readonly Companie $companie;
+    public function __construct()
+    {
+        $this->companie = new Companie();
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $companies = $this->user->all();
+        return view('companies', ['companies' => $companies]);
     }
 
     /**

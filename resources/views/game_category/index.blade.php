@@ -1,0 +1,1 @@
+<h1>aqui serão listadas todas as categorias de jogos</h1>
