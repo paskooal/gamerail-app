@@ -7,12 +7,17 @@ use App\Models\Product;
 
 class ProductController extends Controller
 {
+    public readonly Product $products;
+    public function __construct() {
+        $this->products = new Product;
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $products = $this->products->all();
+        return view('products/index', ['products' => $products]);
     }
 
     /**
