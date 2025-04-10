@@ -7,12 +7,17 @@ use App\Models\ProdCategory;
 
 class ProdCategoriesController extends Controller
 {
+    public readonly ProdCategory $prodCategory;
+    public function __construct() {
+        $this->prodCategory = new ProdCategory();
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $prod_categories = $this->prodCategory->all();
+        return view('prod_category/index', ['prod_categories' => $prod_categories]);
     }
 
     /**

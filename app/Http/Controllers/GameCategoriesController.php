@@ -7,12 +7,17 @@ use App\Models\GameCategory;
 
 class GameCategoriesController extends Controller
 {
+    public readonly gameCategory $game_category;
+    public function __construct() {
+        $this->game_category = new GameCategory;
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $game_categories = $this->game_category->all();
+        return view('game_category/index', ['game_categories' => $game_categories]);
     }
 
     /**
