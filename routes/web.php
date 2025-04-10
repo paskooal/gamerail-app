@@ -9,8 +9,10 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\GameCategoriesController;
 use App\Http\Controllers\ProdCategoriesController;
 
-//Rotas de games
+//Rota da home
 Route::get('/', [HomeController::class,'index'])->name('home');
+
+//Rotas de games
 Route::get('/games', [GameController::class,'index'])->name('games.index');
 Route::get('/games/create', [GameController::class,'create'])->name('games.create');
 Route::post('/games', [GameController::class,'store'])->name('games.store');
@@ -24,8 +26,8 @@ Route::get('/companies', [CompanieController::class, 'index'])->name('companies.
 Route::get('/companies/create', [CompanieController::class, 'create'])->name('companies.create');
 Route::post('/companies', [CompanieController::class, 'store'])->name('companies.store');
 Route::get('/companies/{companie}', [CompanieController::class, 'show'])->name('companies.show');
-Route::get('/companies{companie}/edit', [CompanieController::class, 'edit'])->name('companies.edit');
-Route::put('/companies{companie}', [CompanieController::class, 'update'])->name('companies.update');
+Route::get('/companies/{companie}/edit', [CompanieController::class, 'edit'])->name('companies.edit');
+Route::put('/companies/{companie}', [CompanieController::class, 'update'])->name('companies.update');
 Route::delete('/companies/{companie}', [CompanieController::class, 'destroy'])->name('companies.destroy');
 
 //Rotas de products
