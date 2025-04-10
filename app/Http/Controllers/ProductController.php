@@ -49,7 +49,7 @@ class ProductController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        var_dump($id);
     }
 
     /**
