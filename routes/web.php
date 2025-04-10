@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GameController;
-use App\Http\Controllers\CompanieController;
+use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\GameCategoriesController;
 use App\Http\Controllers\ProdCategoriesController;
@@ -22,13 +22,13 @@ Route::put('/games/{game}', [GameController::class,'update'])->name('games.updat
 Route::delete('/games/{game}', [GameController::class,'destroy'])->name('games.destroy');
 
 //Rotas de companies
-Route::get('/companies', [CompanieController::class, 'index'])->name('companies.index');
-Route::get('/companies/create', [CompanieController::class, 'create'])->name('companies.create');
-Route::post('/companies', [CompanieController::class, 'store'])->name('companies.store');
-Route::get('/companies/{companie}', [CompanieController::class, 'show'])->name('companies.show');
-Route::get('/companies/{companie}/edit', [CompanieController::class, 'edit'])->name('companies.edit');
-Route::put('/companies/{companie}', [CompanieController::class, 'update'])->name('companies.update');
-Route::delete('/companies/{companie}', [CompanieController::class, 'destroy'])->name('companies.destroy');
+Route::get('/companies', [CompanyController::class, 'index'])->name('companies.index');
+Route::get('/companies/create', [CompanyController::class, 'create'])->name('companies.create');
+Route::post('/companies', [CompanyController::class, 'store'])->name('companies.store');
+Route::get('/companies/{company}', [CompanyController::class, 'show'])->name('companies.show');
+Route::get('/companies/{company}/edit', [CompanyController::class, 'edit'])->name('companies.edit');
+Route::put('/companies/{company}', [CompanyController::class, 'update'])->name('companies.update');
+Route::delete('/companies/{company}', [CompanyController::class, 'destroy'])->name('companies.destroy');
 
 //Rotas de products
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
@@ -40,27 +40,28 @@ Route::put('/products/{product}', [ProductController::class, 'update'])->name('p
 Route::delete('/products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
 
 //Rotas de prod_categories
-Route::get('/prod_categories', [ProdCategoriesController::class, 'index'])->name('prod_categories.index');
-Route::get('/prod_categories/create', [ProdCategoriesController::class, 'create'])->name('prod_categories.create');
-Route::post('/prod_categories', [ProdCategoriesController::class, 'store'])->name('prod_categories.store');
-Route::get('/prod_categories{prod_category}', [ProdCategoriesController::class, 'show'])->name('prod_categories.show');
-Route::get('/prod_categories/{prod_category}/edit', [ProdCategoriesController::class, 'edit'])->name('prod_categories.edit');
-Route::put('/prod_categories/{prod_category}', [ProdCategoriesController::class, 'update'])->name('prod_categories.update');
-Route::delete('/prod_categories/{prod_category}', [ProdCategoriesController::class, 'destroy'])->name('prod_categories.destroy');
+Route::get('/prodCategories', [ProdCategoriesController::class, 'index'])->name('prodCategories.index');
+Route::get('/prodCategories/create', [ProdCategoriesController::class, 'create'])->name('prodCategories.create');
+Route::post('/prodCategories', [ProdCategoriesController::class, 'store'])->name('prodCategories.store');
+Route::get('/prodCategories{prodCategory}', [ProdCategoriesController::class, 'show'])->name('prodCategories.show');
+Route::get('/prodCategories/{prodCategory}/edit', [ProdCategoriesController::class, 'edit'])->name('prodCategories.edit');
+Route::put('/prodCategories/{prodCategory}', [ProdCategoriesController::class, 'update'])->name('prodCategories.update');
+Route::delete('/prodCategories/{prodCategory}', [ProdCategoriesController::class, 'destroy'])->name('prodCategories.destroy');
 
 //Rotas de game_categories
-Route::get('/game_categories', [GameCategoriesController::class, 'index'])->name('game_categories.index');
-Route::get('/game_categories/create', [GameCategoriesController::class, 'create'])->name('game_categories.create');
-Route::post('/game_categories', [GameCategoriesController::class, 'store'])->name('game_categories.store');
-Route::get('/game_categories{game_category}', [GameCategoriesController::class, 'show'])->name('game_categories.show');
-Route::get('/game_categories/{game_category}/edit', [GameCategoriesController::class, 'edit'])->name('game_categories.edit');
-Route::put('/game_categories/{game_category}', [GameCategoriesController::class, 'update'])->name('game_categories.update');
-Route::delete('/game_categories/{game_category}', [GameCategoriesController::class, 'destroy'])->name('game_categories.destroy');
+Route::get('/gameCategories', [GameCategoriesController::class, 'index'])->name('gameCategories.index');
+Route::get('/gameCategories/create', [GameCategoriesController::class, 'create'])->name('gameCategories.create');
+Route::post('/gameCategories', [GameCategoriesController::class, 'store'])->name('gameCategories.store');
+Route::get('/gameCategories{gameCategory}', [GameCategoriesController::class, 'show'])->name('gameCategories.show');
+Route::get('/gameCategories/{gameCategory}/edit', [GameCategoriesController::class, 'edit'])->name('gameCategories.edit');
+Route::put('/gameCategories/{gameCategory}', [GameCategoriesController::class, 'update'])->name('gameCategories.update');
+Route::delete('/gameCategories/{gameCategory}', [GameCategoriesController::class, 'destroy'])->name('gameCategories.destroy');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+//essa middleware tem q colocar em todas as rotas para impedir que alguem q nao esteja logado acesse
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
