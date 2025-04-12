@@ -9,7 +9,7 @@ class GameCategoriesController extends Controller
 {
     public readonly gameCategory $game_category;
     public function __construct() {
-        $this->game_category = new GameCategory;
+        $this->game_category = new gameCategory;
     }
     /**
      * Display a listing of the resource.
@@ -17,7 +17,7 @@ class GameCategoriesController extends Controller
     public function index()
     {
         $game_categories = $this->game_category->all();
-        return view('game_category/index', ['game_categories' => $game_categories]);
+        return view('game_category.index', ['game_categories' => $game_categories]);
     }
 
     /**
@@ -47,17 +47,18 @@ class GameCategoriesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(gameCategory $game_category)
     {
-        var_dump($id);
+        return view('game_category.edit', ['gameCategory' => $game_category]);
+        // var_dump($game_category);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, gameCategory $gameCategory)
     {
-        //
+        var_dump($gameCategory->id);
     }
 
     /**
