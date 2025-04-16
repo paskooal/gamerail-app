@@ -52,6 +52,7 @@
                 @endforeach
             </select>
         </div>
+
     </div>
             <x-input-label :value="__('Descrição')" for="description" />
             <textarea required maxLength='200' minLength='2'
@@ -72,7 +73,6 @@
     </div>
     </form>
 @endsection
-
 @section("char")
 @endsection
 <script>

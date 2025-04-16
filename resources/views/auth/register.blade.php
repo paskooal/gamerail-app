@@ -1,5 +1,5 @@
 
-@extends('layouts.form')
+@extends('layouts.login')
 @section('title', 'Registrar-se')
 @section('content')
 @section('char')
@@ -10,7 +10,7 @@
 </div>
         @endsection 
 
-    <form method="POST" action="{{ route('register') }}">
+    <form method="POST" id="form" data-parsley-validate action="{{ route('register') }}">
         @csrf
 
         <!-- Name -->
@@ -54,4 +54,9 @@
             </x-primary-button>
             <x-link class="flex items-center justify-center mt-1 ml-1" href="{{ route('login') }}" :value="__('Já tem uma conta?')" />
     </form>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        $('#form').parsley();
+    });
+</script>
 @endsection

@@ -1,20 +1,5 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/parsleyjs/src/parsley.css">
-<script src="https://cdn.jsdelivr.net/npm/parsleyjs"></script>
-
-    <script src="{{asset('js/custom.js')}}"  defer></script>
-    <script>
-        import 'parsleyjs';
-    </script>
-    <title>@yield('title')</title>
-        @vite("resources/css/app.css")
-</head>
+@extends('layouts.dashboard')
+@section('content')
 <body class="w-screen h-screen flex bg-slate-600">
     <img class="absolute w-screen h-screen object-cover" src="{{asset('images/bg1.webp')}}" alt="">
     <div class="absolute opacity-65 bg-purple-950  w-screen h-screen"></div>
@@ -30,9 +15,4 @@
        @yield('char') 
     </div>
 </body>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        $('#form').parsley();
-    });
-</script>
-</html>
+@endsection

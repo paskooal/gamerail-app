@@ -8,19 +8,7 @@
     <div class="md:flex md:gap-6">
         <div class="flex-1 mb-4">
             <x-input-label for="name" :value="__('Name')" />
-            <x-text-input 
-                required
-                maxLength="30" 
-                minLength="2" 
-                id="name" 
-                name="name" 
-                type="text" 
-                class="w-full"
-                data-parsley-required="true"
-                data-parsley-minlength="2"
-                data-parsley-maxlength="30"
-                data-parsley-error-message="O nome deve ter entre 2 e 30 caracteres."
-            />
+            <x-text-input required maxLength="30" minLength="2" id="name" name="name" type="text" class="w-full" />
         </div>
         <div class="flex-1 mb-4">
             <x-input-label for="price" :value="__('Preço')" />
@@ -31,9 +19,6 @@
                 type="text"
                 oninput="formatarValor(this)"
                 class="w-full"
-                data-parsley-required="true"
-                data-parsley-type="digits"
-                data-parsley-error-message="Por favor, insira um preço válido."
             />
         </div>
     </div>
@@ -42,13 +27,7 @@
     <div class="md:flex md:gap-6">
         <div class="flex-1 mb-4">
             <x-input-label for="category_id" :value="__('Categoria')" />
-            <select 
-                name="category_id" 
-                id="category_id" 
-                class="w-full rounded-md border-none bg-purple-600 text-white placeholder-white shadow-inner ring-0 transition-all focus:border-fuchsia-500 focus:bg-purple-700 focus:text-white focus:ring-2 focus:ring-white"
-                data-parsley-required="true"
-                data-parsley-error-message="Por favor, selecione uma categoria."
-            >
+            <select name="category_id" id="category_id" class="w-full rounded-md border-none bg-purple-600 text-white placeholder-white shadow-inner ring-0 transition-all focus:border-fuchsia-500 focus:bg-purple-700 focus:text-white focus:ring-2 focus:ring-white">
                 <option value="">Selecione a categoria</option>
                 @foreach ($categories as $category)
                     <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -57,32 +36,16 @@
         </div>
         <div class="flex-1 mb-4">
             <x-input-label for="release_date" :value="__('Data de Lançamento')" />
-            <x-text-input 
-                required 
-                id="release_date" 
-                name="release_date" 
-                type="date" 
-                class="w-full"
-                onkeydown="return false;" 
-                data-parsley-required="true"
-                data-parsley-error-message="Por favor, selecione uma data de lançamento."
-            />
+            <x-text-input required id="release_date" name="release_date" type="date" class="w-full" onkeydown="return false;" />
         </div>
     </div>
 
-    <!-- Linha: Desenvolvedora e Publicadora -->
+    <!-- Linha: Desenvolvedora -->
     <div class="md:flex md:gap-6">
         <div class="flex-1 mb-4">
             <x-input-label for="manufacturer_id" :value="__('Desenvolvedora')" />
-            <select 
-                class="w-full rounded-md border-none bg-purple-600 text-white placeholder-white shadow-inner ring-0 transition-all focus:border-fuchsia-500 focus:bg-purple-700 focus:text-white focus:ring-2 focus:ring-white" 
-                name="manufacturer_id" 
-                id="manufacturer_id" 
-                required 
-                data-parsley-required="true"
-                data-parsley-error-message="Por favor, selecione uma desenvolvedora."
-            >
-                <option value="">Selec. a fabricante</option>
+            <select class="w-full rounded-md border-none bg-purple-600 text-white placeholder-white shadow-inner ring-0 transition-all focus:border-fuchsia-500 focus:bg-purple-700 focus:text-white focus:ring-2 focus:ring-white" name="manufacturer_id" id="manufacturer_id" required>
+                <option value="">Selecione a fabricante</option>
                 @foreach ($companies as $company)
                     <option value="{{ $company->id }}">{{ $company->name }}</option>
                 @endforeach
@@ -91,25 +54,19 @@
     </div>
 
     <!-- Descrição -->
-    <div class="mb-4">
+    <div>
         <x-input-label for="description" :value="__('Descrição')" />
-        <textarea 
-            required 
-            maxLength="200" 
-            minLength="2"
-            class="mb-4 h-20 w-full rounded-md border-none bg-purple-600 text-white placeholder-white shadow-inner ring-0 transition-all focus:border-fuchsia-500 focus:bg-purple-700 focus:text-white focus:ring-2 focus:ring-white"
-            id="description"
-            name="description"
-            data-parsley-required="true"
-            data-parsley-minlength="2"
-            data-parsley-maxlength="200"
-            data-parsley-error-message="A descrição deve ter entre 2 e 200 caracteres."
+        <textarea required maxLength='200' minLength='2'
+                  class="h-20 w-full rounded-md border-none bg-purple-600 text-white placeholder-white shadow-inner ring-0 transition-all focus:border-fuchsia-500 focus:bg-purple-700 focus:text-white focus:ring-2 focus:ring-white"
+                  id="description"
+                  name="description"
+                  type="text"
         ></textarea>
     </div>
 
     <!-- Botões -->
     <div class="flex flex-col items-center">
-        <x-primary-button class="mb-1 w-full justify-center">
+        <x-primary-button class="mt-4 mb-1 w-full justify-center">
             {{ __("Confirmar") }}
         </x-primary-button>
         <x-link class="mt-3" href="{{ route('products.index') }}" :value="__('Voltar à Tabela')" />
