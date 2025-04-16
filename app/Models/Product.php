@@ -14,8 +14,18 @@ class Product extends Model
         'image',
         'description',
         'price',
+        'manufacturer_id',
         'release_date',
         'total_sales',
-        'prod_category_id'
+        'category'
     ];
+    public function category()
+{
+    return $this->belongsTo(ProdCategory::class, 'category_id');
+
+}
+public function manufacturer()
+{
+    return $this->belongsTo(Company::class, 'manufacturer_id');
+}
 }

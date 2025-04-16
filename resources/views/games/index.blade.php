@@ -1,12 +1,4 @@
 @extends('layouts.dashboard')
-@section('title', 'Listar Jogos')
-@section('devarea')
-@section('navlink1', 'Jogos')
-@section('navlink2', 'Produtos')
-@section('navlink3', 'Categorias')
-@section('navlink4', 'Empresas')
-<a href="{{ route("dashboard") }}">Voltar a loja</a>
-@endsection
 @section('content')
         @if (session('message'))
             <p class="p-3 m-3 mt-1 bg-green-400 border-2 border-green-700 rounded-md text-green-950">{{session('message')}}</p>
@@ -45,7 +37,7 @@
                 <tr class="divide-x divide-purple-500 bg-purple-300 text-purple-800">
                                         <td class="p-3 font-bold">{{ $game->id }}</td>
                                         <td class="p-3 font-bold truncate">{{$game->title}}</td>
-                                        <td class="p-3 font-bold">{{$game->price}}</td>
+                                        <td class="p-3 font-bold">R${{$game->price}}</td>
                                         <td class="p-3 font-bold truncate">{{ $game->category->name ?? 'Sem categ' }}</td>
                                         <td class="p-3 font-bold truncate">{{ $game->developer->name ?? 'Sem devel' }}</td>
                                         <td class="p-3 font-bold truncate">{{ $game->publisher->name ?? 'Sem publi' }}</td>

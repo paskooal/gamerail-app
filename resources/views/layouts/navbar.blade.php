@@ -36,17 +36,18 @@
             >
             @yield('navlink4')
             </li>
+            <li
+                class="cursor-pointer bg-purple-700 p-3 transition-all hover:scale-110 hover:bg-white hover:text-purple-700 lg:w-auto lg:rounded-md lg:bg-opacity-0"
+            >
+            @yield('navlink5')
+            </li>
+            <li
+                class="cursor-pointer bg-purple-700 p-3 transition-all hover:scale-110 hover:bg-white hover:text-purple-700 lg:w-auto lg:rounded-md lg:bg-opacity-0"
+            >
+            @yield('navlink6')
+            </li>
         </ul>
-        <div class="search shadow-inner mt-3 hidden items-center lg:mt-0 lg:flex lg:py-0">
-            <div class="relative flex items-center">
-                <i class="bx bx-search absolute left-3 text-2xl text-white"></i>
-                <input
-                    class="rounded-md border-none bg-purple-800 px-8 pl-10 text-white placeholder-white ring-0 transition-all focus:border-fuchsia-500 focus:bg-purple-800 focus:text-white focus:ring-2 focus:ring-white"
-                    placeholder="Buscar Jogos..."
-                    type="text"
-                />
-            </div>
-        </div>
+        @yield('searchbar')
         <div class="absolute right-8 top-3 flex flex-row lg:static">
             @if (auth()->check())
                 <div class="group flex items-center">

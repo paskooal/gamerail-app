@@ -37,9 +37,10 @@ class GameCategoriesController extends Controller
             return view('gameCategories.edit', compact('gameCategory'));
         }
 
-        public function update(GameCategoryRequest $request)
+        public function update(GameCategoryRequest $request, $id)
         {
-            GameCategory::findOrFail($request->id)->update($request->all());
+                $gameCategory = GameCategory::findOrFail($id);
+                $gameCategory->update($request->all());
         
             session()->flash('message', 'A categoria: ' . $request->name . ' foi atualizada com sucesso!');
             return redirect()->route('gameCategories.index');

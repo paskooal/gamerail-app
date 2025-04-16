@@ -1,7 +1,7 @@
 @extends("layouts.form")
 @section("title", "Editanto " . $gameCategory->name)
 @section("content")
-    <form id="form" class="" data-parsley-validate action="/gameCategories/update/{{$gameCategory->id}}" method="POST">
+    <form id="form" class="" data-parsley-validate action="{{ route('gameCategories.update', $gameCategory->id) }}" method="POST">
         @csrf
         @method('PUT')
         <input type="hidden" name="id" value="{{ $gameCategory->id }}">

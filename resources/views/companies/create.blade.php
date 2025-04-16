@@ -41,23 +41,9 @@
         <x-primary-button class="mb-1 w-full justify-center">
             {{ __("Confirmar") }}
         </x-primary-button>
-        <x-link class="mt-3" href="{{ route('games.index') }}" :value="__('Voltar à Tabela')" />
+        <x-link class="mt-3" href="{{ route('companies.index') }}" :value="__('Voltar à Tabela')" />
     </div>
 </form>
-<script>
-document.getElementById('form').addEventListener('submit', function () {
-    const input = document.getElementById('price');
-    let valor = input.value;
-
-    valor = valor.replace(/R\$\s?/, '');
-
-    valor = valor.replace(/\./g, '');
-
-    valor = valor.replace(',', '.');
-
-    input.value = valor;
-});
-</script>
 @endsection
 
 @section("char")

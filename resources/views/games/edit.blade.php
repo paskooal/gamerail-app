@@ -1,7 +1,7 @@
 @extends("layouts.form")
 @section("title", "Editanto " . $game->title)
 @section("content")
-    <form id="form" class="" data-parsley-validate action="/games/update/{{$game->id}}" method="POST">
+    <form id="form" class="" data-parsley-validate action="{{ route('games.update', $game->id) }}" method="POST">
         @csrf
         @method('PUT')
         <input type="hidden" name="id" value="{{ $game->id }}">
@@ -18,7 +18,7 @@
             inputmode="numeric"
             id="price"
             name="price"
-            type="text"
+            type="number"
             value="{{ old('price', $game->price) }}" 
             class="w-full"
         />

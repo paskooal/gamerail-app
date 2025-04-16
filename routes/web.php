@@ -11,6 +11,10 @@ use App\Http\Controllers\ProdCategoriesController;
 
 //Rota da home
 Route::get('/', [HomeController::class,'index'])->name('home');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
 
 //Rotas de games
 Route::get('/games', [GameController::class,'index'])->name('games.index');
@@ -24,9 +28,9 @@ Route::delete('/games/destroy/{game}', [GameController::class,'destroy'])->name(
 Route::get('/companies', [CompanyController::class, 'index'])->name('companies.index');
 Route::get('/companies/create', [CompanyController::class, 'create'])->name('companies.create');
 Route::post('/companies', [CompanyController::class, 'store'])->name('companies.store');
-Route::get('/companies/edit/{comapany}', [CompanyController::class, 'edit'])->name('companies.edit');
-Route::put('/companies/update/{comapany}', [CompanyController::class, 'update'])->name('companies.update');
-Route::delete('/companies/destroy/{comapany}', [CompanyController::class, 'destroy'])->name('companies.destroy');
+Route::get('/companies/edit/{company}', [CompanyController::class, 'edit'])->name('companies.edit');
+Route::put('/companies/update/{company}', [CompanyController::class, 'update'])->name('companies.update');
+Route::delete('/companies/destroy/{company}', [CompanyController::class, 'destroy'])->name('companies.destroy');
 
 //Rotas de products
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
@@ -51,10 +55,6 @@ Route::post('/gameCategories', [GameCategoriesController::class, 'store'])->name
 Route::get('/gameCategories/edit/{gameCategory}', [GameCategoriesController::class, 'edit'])->name('gameCategories.edit');
 Route::put('/gameCategories/update/{gameCategory}', [GameCategoriesController::class, 'update'])->name('gameCategories.update');
 Route::delete('/gameCategories/destroy/{gameCategory}', [GameCategoriesController::class, 'destroy'])->name('gameCategories.destroy');
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 //essa middleware tem q colocar em todas as rotas para impedir que alguem q nao esteja logado acesse
 Route::middleware('auth')->group(function () {

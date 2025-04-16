@@ -1,12 +1,4 @@
 @extends('layouts.dashboard')
-@section('title', 'Listar Categorias de Jogos')
-@section('devarea')
-@section('navlink1', 'Jogos')
-@section('navlink2', 'Produtos')
-@section('navlink3', 'Categorias')
-@section('navlink4', 'Empresas')
-<a href="{{ route("dashboard") }}">Voltar a loja</a>
-@endsection
 @section('content')
         @if (session('message'))
             <p class="p-3 m-3 mt-1 bg-green-400 border-2 border-green-700 rounded-md text-green-950">{{session('message')}}</p>
@@ -65,7 +57,7 @@
             </table>
             </div>
         @else
-            <p class="text-purple-800 text-xl">Nenhum jogo encontrado</p>
+            <p class="text-purple-800 text-xl">Nenhuma Categoria encontrado</p>
         
         @endif
     @endsection

@@ -37,9 +37,10 @@ class ProdCategoriesController extends Controller
             return view('prodCategories.edit', compact('prodCategory'));
         }
 
-        public function update(prodCategoryRequest $request)
+        public function update(ProdCategoryRequest $request, $id)
         {
-            ProdCategory::findOrFail($request->id)->update($request->all());
+                $prodCategory = prodCategory::findOrFail($id);
+                $prodCategory->update($request->all());
         
             session()->flash('message', 'A categoria: ' . $request->name . ' foi atualizada com sucesso!');
             return redirect()->route('prodCategories.index');

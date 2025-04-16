@@ -36,17 +36,18 @@ class companyController extends Controller
     }
     public function edit(string $id)
     {
-        $company = company::findOrFail($id);
+        $company = Company::findOrFail($id);
             return view('companies.edit', compact('company'));
         }
 
-        public function update(CompanyRequest $request)
-        {
-            Company::findOrFail($request->id)->update($request->all());
-        
-            session()->flash('message', 'A empresa: ' . $request->name . ' foi atualizada com sucesso!');
-            return redirect()->route('companies.index');
-        }
+        public function update(CompanyRequest $request, $id)
+{
+        $company = Company::findOrFail($id);
+        $company->update($request->all());
+
+    session()->flash('message', 'A empresa: ' . $request->name . ' foi atualizada com sucesso!');
+    return redirect()->route('companies.index');
+}
 
     public function destroy(string $id)
     {

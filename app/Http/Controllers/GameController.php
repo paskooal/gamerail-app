@@ -48,9 +48,10 @@ class GameController extends Controller
             return view('games.edit', compact('game', 'companies', 'categories'));
         }
 
-        public function update(GameRequest $request)
+        public function update(GameRequest $request, $id)
         {
-            Game::findOrFail($request->id)->update($request->all());
+                $game = Game::findOrFail($id);
+                $game->update($request->all());
         
             session()->flash('message', 'O jogo: ' . $request->title . ' foi atualizado com sucesso!');
             return redirect()->route('games.index');

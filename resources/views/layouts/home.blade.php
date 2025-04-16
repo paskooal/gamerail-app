@@ -1,24 +1,23 @@
-@section('navlink1')
-<a href="/dashboard">Dashboard</a>
-@endsection
-@section('navlink2')
-<a href="/games">Jogos</a>
-@endsection
-@section('navlink3')
-<a href="/products">Produtos</a>
-@endsection
-@section('navlink4')
-<a href="/companies">Empresas</a>
-@endsection
-@section('navlink5')
-<a href="/gameCategories">Categorias de Jogos</a>
-@endsection
-@section('navlink6')
-<a href="/prodCategories">Categorias de Produtos</a>
-@endsection
+@section('title', 'GameRail')
+@section('navlink1', 'Início')
+@section('navlink2', 'Ofertas')
+@section('navlink3', 'Categorias')
+@section('navlink4', 'Contato')
 @section('devarea')
-<a href="{{ route("home") }}">Voltar a loja</a>
+<a href="{{ route("dashboard") }}">Área Dev</a>
 @endsection
+@section('searchbar')
+<div class="search shadow-inner mt-3 hidden items-center lg:mt-0 lg:flex lg:py-0">
+            <div class="relative flex items-center">
+                <i class="bx bx-search absolute left-3 text-2xl text-white"></i>
+                <input
+                    class="rounded-md border-none bg-purple-800 px-8 pl-10 text-white placeholder-white ring-0 transition-all focus:border-fuchsia-500 focus:bg-purple-800 focus:text-white focus:ring-2 focus:ring-white"
+                    placeholder="Buscar Jogos..."
+                    type="text"
+                />
+            </div>
+        </div>
+        @endsection
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
