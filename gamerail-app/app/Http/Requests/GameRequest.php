@@ -23,11 +23,6 @@ class GameRequest extends FormRequest
     {
 
         return [
-        'title' => 'required',
-        'price' => 'required',
-        'developer' => 'required',
-        'publisher' => 'required',
-        'description' => 'required'
         ];
     }
 }

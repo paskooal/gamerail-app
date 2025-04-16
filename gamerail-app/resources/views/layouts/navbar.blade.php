@@ -1,0 +1,102 @@
+<header
+        class="header fixed left-0 z-30 top-0 w-screen items-center justify-between bg-purple-600 py-4 text-white drop-shadow-md lg:flex lg:px-12 lg:py-3"
+    >
+        <div class="px-4 transition-all lg:px-0 lg:hover:scale-105">
+            <a class="items-center font-black" href="">
+                <img
+                    class="w-44 ml-3"
+                    src="{{ asset("images/grTitle.png") }}"
+                    alt="logo"
+                />
+            </a>
+        </div>
+        <ul
+            class="menu text-semibold hidden text-center font-semibold lg:flex lg:gap-4 lg:divide-y-0"
+        >
+            <li
+                class="mt-5 cursor-pointer bg-purple-700 p-3 transition-all hover:scale-110 hover:bg-white hover:text-purple-700 lg:mt-0 lg:w-auto lg:rounded-md lg:bg-opacity-0"
+            >
+                @yield('navlink1')
+            </li>
+
+            <li
+                class="cursor-pointer bg-purple-700 p-3 transition-all hover:scale-110 hover:bg-white hover:text-purple-700 lg:w-auto lg:rounded-md lg:bg-opacity-0"
+            >
+            @yield('navlink2')
+            </li>
+
+            <li
+                class="cursor-pointer bg-purple-700 p-3 transition-all hover:scale-110 hover:bg-white hover:text-purple-700 lg:w-auto lg:rounded-md lg:bg-opacity-0"
+            >
+            @yield('navlink3')
+            </li>
+
+            <li
+                class="cursor-pointer bg-purple-700 p-3 transition-all hover:scale-110 hover:bg-white hover:text-purple-700 lg:w-auto lg:rounded-md lg:bg-opacity-0"
+            >
+            @yield('navlink4')
+            </li>
+        </ul>
+        <div class="search shadow-inner mt-3 hidden items-center lg:mt-0 lg:flex lg:py-0">
+            <div class="relative flex items-center">
+                <i class="bx bx-search absolute left-3 text-2xl text-white"></i>
+                <input
+                    class="rounded-md border-none bg-purple-800 px-8 pl-10 text-white placeholder-white ring-0 transition-all focus:border-fuchsia-500 focus:bg-purple-800 focus:text-white focus:ring-2 focus:ring-white"
+                    placeholder="Buscar Jogos..."
+                    type="text"
+                />
+            </div>
+        </div>
+        <div class="absolute right-8 top-3 flex flex-row lg:static">
+            @if (auth()->check())
+                <div class="group flex items-center">
+                    <img
+                        class="h-8 rounded-2xl transition-all group-hover:ring-2 group-hover:ring-white"
+                        src="{{ asset("images/defIcon.png") }}"
+                        alt="pfp"
+                    />
+                    <a
+                        class="dropDbutton bx bx-chevron-down group flex cursor-pointer items-center gap-1 rounded-md pl-1 pr-2 text-3xl font-semibold transition-all"
+                        onclick="showDropD()"
+                    ></a>
+                    <ul
+                        class="dropD absolute text-center right-4 top-1 mt-10 hidden flex-col items-center rounded-md bg-purple-950 bg-opacity-75 p-2 font-semibold lg:right-6 lg:top-5"
+                    >
+                        <li
+                            class="m-1 flex justify-center rounded-md bg-purple-600 bg-opacity-15 px-3 py-1 transition-all hover:bg-white hover:py-2 hover:text-purple-700 lg:px-2"
+                        >
+                            Perfil
+                        </li>
+                        <li
+                            class="m-1 flex justify-center rounded-md bg-purple-600 bg-opacity-15 px-2 py-1 transition-all hover:bg-white hover:py-2 hover:text-purple-700"
+                        >
+                            Lista de desejos
+                        </li>
+                        <li
+                            class="m-1 flex items-center justify-center gap-1 rounded-md bg-purple-600 bg-opacity-15 px-3 py-1 transition-all hover:bg-white hover:py-2 hover:text-purple-700 lg:px-2"
+                        >
+                            @yield("devarea")
+                        </li>
+                        <li
+                            class="m-1 flex items-center justify-center gap-1 rounded-md bg-purple-600 bg-opacity-15 px-3 py-1 transition-all hover:bg-white hover:py-2 hover:text-purple-700 lg:px-2"
+                        >
+                            <div class="bx bx-log-out-circle"></div>
+                            <a href="{{ route("logout") }}">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            @else
+                <a
+                    class="group mr-2 flex cursor-pointer items-center gap-1 rounded-md p-1 pr-2 font-semibold transition-all hover:scale-110 hover:bg-white hover:text-purple-700"
+                    href="{{ route("login") }}"
+                >
+                    <div class="bx bx-log-in-circle text-2xl"></div>
+                    Login
+                </a>
+            @endif
+            <button
+                onclick="showMenu()"
+                class="menuBtn bx bx-menu mt-0.5 cursor-pointer items-center text-4xl transition-all hover:scale-110 lg:hidden"
+            ></button>
+        </div>
+    </header>
