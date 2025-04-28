@@ -13,24 +13,31 @@ function showDropD() {
     }
 }
 function formatarValor(input) {
-    // Pega só os números (sem letras, ponto, vírgula, etc)
+    // Pega só os números
     let valor = input.value.replace(/\D/g, '');
 
     // Limita a 7 dígitos (5 inteiros + 2 centavos)
-    if (valor.length > 7) {
-        valor = valor.slice(0, 7);
+    valor = valor.slice(0, 7);
+
+    // Se ainda não digitou nada, limpa
+    if (valor.length === 0) {
+        input.value = '';
+        return;
     }
 
-    // Garante ao menos 3 dígitos (ex: "1" → "001")
+    // Preenche com zeros à esquerda se tiver menos de 3 dígitos
     valor = valor.padStart(3, '0');
 
-    // Separa em parte inteira e centavos
-    let inteiro = valor.slice(0, -2);
+    // Separa os centavos
     let centavos = valor.slice(-2);
+    let inteiro = valor.slice(0, -2);
 
     // Adiciona pontos nos milhares
     inteiro = inteiro.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
-    // Aplica no input
     input.value = `R$ ${inteiro},${centavos}`;
+}
+if (valor.length === 0) {
+    input.value = 'R$ 0,00';
+    return;
 }

@@ -11,10 +11,18 @@
 <a href="/companies">Empresas</a>
 @endsection
 @section('navlink5')
+<li
+                class="cursor-pointer bg-purple-700 p-3 transition-all hover:scale-110 hover:bg-white hover:text-purple-700 lg:w-auto lg:rounded-md lg:bg-opacity-0"
+            >
 <a href="/gameCategories">Categorias de Jogos</a>
+</li>
 @endsection
 @section('navlink6')
+<li
+                class="cursor-pointer bg-purple-700 p-3 transition-all hover:scale-110 hover:bg-white hover:text-purple-700 lg:w-auto lg:rounded-md lg:bg-opacity-0"
+            >
 <a href="/prodCategories">Categorias de Produtos</a>
+</li>
 @endsection
 @section('devarea')
 <a href="{{ route("home") }}">Voltar a loja</a>
@@ -39,7 +47,7 @@
             src="{{ asset("images/bg2.webp") }}"
             alt=""
         />
-        <div class="bg-gradient-to-r shadow-xl min-h-screen z-20 from-purple-950 to-violet-800
+        <div class="bg-gradient-to-r shadow-xl min-h-screen z-20 from-purple-950 to-violet-900
              px-4 pt-20 text-white w-full md:w-3/4">
             @yield("content")
         </div>

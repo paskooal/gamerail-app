@@ -35,17 +35,9 @@
                 class="cursor-pointer bg-purple-700 p-3 transition-all hover:scale-110 hover:bg-white hover:text-purple-700 lg:w-auto lg:rounded-md lg:bg-opacity-0"
             >
             @yield('navlink4')
-            </li>
-            <li
-                class="cursor-pointer bg-purple-700 p-3 transition-all hover:scale-110 hover:bg-white hover:text-purple-700 lg:w-auto lg:rounded-md lg:bg-opacity-0"
-            >
+            </li>        
             @yield('navlink5')
-            </li>
-            <li
-                class="cursor-pointer bg-purple-700 p-3 transition-all hover:scale-110 hover:bg-white hover:text-purple-700 lg:w-auto lg:rounded-md lg:bg-opacity-0"
-            >
             @yield('navlink6')
-            </li>
         </ul>
         @yield('searchbar')
         <div class="absolute right-8 top-3 flex flex-row lg:static">

@@ -3,7 +3,7 @@ import './bootstrap';
 import Alpine from 'alpinejs';
 import 'parsleyjs';
 import 'parsleyjs/src/parsley.css';
-
+import './pt-br.js';
 import $ from 'jquery';
 
 window.Alpine = Alpine;

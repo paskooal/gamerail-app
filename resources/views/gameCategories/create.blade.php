@@ -11,18 +11,17 @@
             <x-text-input required maxLength="30" minLength="2" id="name" name="name" type="text" class="w-full" />
         </div>
     </div>
-    <div class="mb-4">
+    <div>
         <x-input-label for="description" :value="__('Descrição')" />
         <textarea required maxLength='200' minLength='2'
-                class="mb-4 h-20 w-full rounded-md border-none bg-purple-600 text-white placeholder-white shadow-inner ring-0 transition-all focus:border-fuchsia-500 focus:bg-purple-700 focus:text-white focus:ring-2 focus:ring-white"
-                id="description"
-                name="description"
-                type="text"
-            ></textarea>
+            class="h-20 w-full rounded-md border-none bg-purple-600 text-white placeholder-white shadow-inner ring-0 transition-all focus:border-fuchsia-500 focus:bg-purple-700 focus:text-white focus:ring-2 focus:ring-white"
+            id="description"
+            name="description"
+            type="text"></textarea>
     </div>
 
     <!-- Botões -->
-    <div class="flex flex-col items-center">
+    <div class="flex flex-col items-center mt-6">
         <x-primary-button class="mb-1 w-full justify-center">
             {{ __("Confirmar") }}
         </x-primary-button>
