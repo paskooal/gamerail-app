@@ -1,9 +1,6 @@
 import './bootstrap';
 
 import Alpine from 'alpinejs';
-import 'parsleyjs';
-import 'parsleyjs/src/parsley.css';
-import './pt-br.js';
 import $ from 'jquery';
 
 window.Alpine = Alpine;
@@ -18,3 +15,18 @@ document.addEventListener('DOMContentLoaded', function () {
         $(form).parsley();
     }
 });
+
+window.showDropD = function () {
+    let dropD = document.querySelector('.dropD');
+    let dropDbutton = document.querySelector('.dropDbutton');
+    if (dropD.classList.contains('hidden')) {
+        dropD.classList.remove('hidden');
+        dropDbutton.classList.remove('bx-chevron-down');
+        dropDbutton.classList.add('bx-chevron-up');
+    } else {
+        dropD.classList.add('hidden');
+        dropD.classList.remove('flex');
+        dropDbutton.classList.add('bx-chevron-down');
+        dropDbutton.classList.remove('bx-chevron-up');
+    }
+}
